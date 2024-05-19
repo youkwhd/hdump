@@ -2,3 +2,13 @@ hdump
 =====
 
 Display file content in hexadecimal.
+
+Prerequisite
+------------
+
+    - Factor VM
+
+Running
+-------
+
+    ./hdump
