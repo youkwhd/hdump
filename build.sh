@@ -2,4 +2,4 @@
 
 EXE=hdump
 
-factor-vm -roots=. -e="\"$EXE\" deploy"
+factor-vm -roots=../ -e="\"$EXE\" deploy"

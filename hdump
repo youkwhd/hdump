@@ -1,0 +1,9 @@
+#! /usr/bin/factor-vm -roots=../
+
+USING: prettyprint io hdump.args ;
+IN: hdump
+
+: main ( -- )
+    get-args . ;
+
+MAIN: main
