@@ -1,9 +1,13 @@
 #! /usr/bin/factor-vm -roots=../
 
-USING: prettyprint io hdump.args ;
+USING: hdump.args io io.encodings.utf8 io.files kernel
+math.parser prettyprint sequences ;
 IN: hdump
 
 : main ( -- )
-    get-args . ;
+    get-in/out-files swap
+    dup f = [ drop read-contents ] [ utf8 file-contents ] if
+    [ >hex write ] each nl
+    drop ;
 
 MAIN: main
