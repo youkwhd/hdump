@@ -1,13 +1,20 @@
 #! /usr/bin/factor-vm -roots=../
 
-USING: hdump.args io io.encodings.utf8 io.files kernel
+USING: hdump.args io io.encodings.utf8 io.files kernel math
 math.parser prettyprint sequences ;
 IN: hdump
+
+: >hex! ( n -- str )
+    >hex dup length 1 = [ "0" swap append ] when ;
+
+: print-in-hex ( str -- )
+    [ dup length 2 >= ] [ 2 cut swap [ >hex! write ] each " " write ] while
+    [ >hex! write ] each nl ;
 
 : main ( -- )
     get-in/out-files swap
     dup f = [ drop read-contents ] [ utf8 file-contents ] if
-    [ >hex write ] each nl
+    print-in-hex
     drop ;
 
 MAIN: main
