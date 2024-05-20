@@ -11,4 +11,7 @@ Prerequisite
 Running
 -------
 
-    ./hdump
+These are examples of using hdump:
+
+    echo "Hello from Factor" | ./hdump
+    ./hdump COPYING
