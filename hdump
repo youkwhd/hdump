@@ -1,11 +1,8 @@
 #! /usr/bin/factor-vm -roots=../
 
-USING: hdump.args io io.encodings.utf8 io.files kernel math
-math.parser prettyprint sequences ;
+USING: hdump.args hdump.hex io io.encodings.utf8 io.files kernel math
+prettyprint sequences ;
 IN: hdump
-
-: >hex! ( n -- str )
-    >hex dup length 1 = [ "0" swap append ] when ;
 
 : print-in-hex ( str -- )
     0 swap
