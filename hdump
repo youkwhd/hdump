@@ -11,7 +11,7 @@ IN: hdump
     [ 2 cut swap [ >hex! write ] each " " write
       swap 1 + dup 8 = [ nl drop 0 ] when swap ] while
 
-    [ >hex! write ] each nl drop ;
+    [ >hex! write ] each dup 8 = [ nl ] when drop ;
 
 : main ( -- )
     get-input-file
