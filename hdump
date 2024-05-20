@@ -8,8 +8,13 @@ IN: hdump
     >hex dup length 1 = [ "0" swap append ] when ;
 
 : print-in-hex ( str -- )
-    [ dup length 2 >= ] [ 2 cut swap [ >hex! write ] each " " write ] while
-    [ >hex! write ] each nl ;
+    0 swap
+
+    [ dup length 2 >= ]
+    [ 2 cut swap [ >hex! write ] each " " write
+      swap 1 + dup 8 = [ nl drop 0 ] when swap ] while
+
+    [ >hex! write ] each nl drop ;
 
 : main ( -- )
     get-in/out-files swap
