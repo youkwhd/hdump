@@ -14,9 +14,8 @@ IN: hdump
     [ >hex! write ] each nl drop ;
 
 : main ( -- )
-    get-in/out-files swap
+    get-input-file
     dup f = [ drop read-contents ] [ utf8 file-contents ] if
-    print-in-hex
-    drop ;
+    print-in-hex ;
 
 MAIN: main
